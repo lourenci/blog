@@ -3,7 +3,7 @@ module.exports = {
     title: `Lourenci's Blog`,
     author: `Leandro Lourenci`,
     description: `Personal blog by Leandro Lourenci`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://blog.lourenci.com/`,
     social: {
       twitter: `lourenci`,
     },
