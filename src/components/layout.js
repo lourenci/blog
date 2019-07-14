@@ -61,10 +61,11 @@ class Layout extends React.Component {
       >
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <footer style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <span>
+            <a href="https://twitter.com/lourenci">twitter</a>, <a href="https://github.com/lourenci">github</a>.
+          </span>
+          <span><a href="/rss.xml">rss</a>.</span>
         </footer>
       </div>
     )
