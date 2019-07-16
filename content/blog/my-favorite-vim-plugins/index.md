@@ -177,4 +177,4 @@ For tabnine.
 
 Don't judge me, I use light theme. I think it's less stressful for my eyes because I can use it with less display brightness than dark themes and it reduces the light reflection on my screen.
 
-I think that a colorscheme must have a nice soft fold color and it has to take care of the diff colors. I have to see the diff and imediatelly spot what is going on in my code. This colorscheme has these very well implemented.
+I think that a colorscheme must have a nice soft fold color and it has to take care of the diff colors. I have to see the diff and immediately spot what is going on in my code. This colorscheme has these very well implemented.
