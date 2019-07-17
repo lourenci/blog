@@ -48,11 +48,15 @@ All the buffers opened.
 
 In file project-wide search.
 
+* `:Filetypes`
+
+A list of all file types supported by Vim.
+
 ### [tpope/vim-surround](https://github.com/tpope/vim-surround)
 
 Tim Pope is famous by your Vim plugins. There are a lot of plugins out there made by him. Any vimmer propably use some of them.
 
-Surround is a plugin that adds some text objects to Vim. If you don't know what text objects are, [I recommend you to read about it](https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/).
+Surround is a plugin that adds some operators to Vim to work with text objects. If you don't know what text objects are, [I recommend you to read about it](https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/).
 
 In a nutshell, with Surround, you can "surround" any text with `()` or `[]` or `{}` (or a lot more) with some keystrokes.
 
@@ -79,6 +83,10 @@ It opens a vim-diff with the buffer changes relative to the HEAD.
 * `:Gblame`
 
 To blame your cowork.
+
+* `:Ggrep`
+
+In file project-wide search. It's faster than `vimgrep`. I use it over fzf's `Ag` when I want to populate a QuickFix list and work on this list.
 
 ### [mbbill/undotree](https://github.com/mbbill/undotree)
 
