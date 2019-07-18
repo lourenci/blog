@@ -4,15 +4,15 @@ date: "2019-07-16T23:22:03.284Z"
 tags: ["vim", "vim-plugins"]
 ---
 
-It had been a long time using a heavy IDE from the Jetbrains family (eg. PhpStorm, Rubymine) and I wanted to switch to something lightful and as keyboard oriented as Jetbrains' IDEs. I tried VSCode, but the lack of essential shortcuts (eg. navigate through the tree files) was the last straw for me. So, I decided to adventure in the Vim world.
+It had been a long time using a heavy IDE from the Jetbrains family (e.g. PhpStorm, Rubymine) and I wanted to switch to something lightful and as keyboard oriented as Jetbrains' IDEs. I tried VSCode, but the lack of essential shortcuts (e.g. navigate through the tree files) was the last straw for me. So, I decided to adventure in the Vim world.
 
 I started in the Vim world without any Vim bootstrap generator, I wanted to start by the Vim way and going to include some plugins as needed.
 I knew I'll end up with a lot of plugins, but I really wanted to miss a feature in Vim before to include it through a plugin. I think this is the best way to really understand and learn Vim.
 
-Now, after a year of daily usage of Vim for Web development (JS and Ruby primarly), I really end up with a list of plugins and I want to share with you some of my favorite ones and how I use them in my development routine.
+Now, after a year of daily usage of Vim for Web development (JS and Ruby primarily), I really end up with a list of plugins and I want to share with you some of my favorite ones and how I use them in my development routine.
 
 You can see the full list on my [github](https://github.com/lourenci/dotfiles/blob/master/vim/vim.symlink/plugin/plugins.vim).
-None of them change the way the Vim works (there is only one exception), I try very hard to avoid these kind of plugins (eg. vim-targets adds a very nice list of text objects, but some of them, changes the behaviour of the existing ones).
+None of them change the way the Vim works (there is only one exception), I try very hard to avoid these kind of plugins (e.g. vim-targets adds a very nice list of text objects, but some of them, changes the behaviour of the existing ones).
 
 The below list isn't in any particular order.
 
@@ -54,7 +54,7 @@ A list of all file types supported by Vim.
 
 ### [tpope/vim-surround](https://github.com/tpope/vim-surround)
 
-Tim Pope is famous by your Vim plugins. There are a lot of plugins out there made by him. Any vimmer propably use some of them.
+Tim Pope is famous by your Vim plugins. There are a lot of plugins out there made by him. Any vimmer probably use some of them.
 
 Surround is a plugin that adds some operators to Vim to work with text objects. If you don't know what text objects are, [I recommend you to read about it](https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/).
 
@@ -62,7 +62,7 @@ In a nutshell, with Surround, you can "surround" any text with `()` or `[]` or `
 
 ### [michaeljsmith/vim-indent-object](https://github.com/michaeljsmith/vim-indent-object)
 
-This one add a text object by the identation of your code/text. You can delete, change, select, do any action with a block of code with some keystrokes.
+This one add a text object by the indentation of your code/text. You can delete, change, select, do any action with a block of code with some keystrokes.
 
 ### [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 
@@ -82,11 +82,11 @@ It opens a vim-diff with the buffer changes relative to the HEAD.
 
 * `:Gblame`
 
-To blame your cowork.
+To blame your coworker.
 
 * `:Ggrep`
 
-In file project-wide search. It's faster than `vimgrep`. I use it over fzf's `Ag` when I want to populate a QuickFix list and work on this list.
+In file project-wide search. It's faster than `vimgrep`. I use it over fzf's `Ag` when I want to populate a quickfix list and work on this list.
 
 ### [mbbill/undotree](https://github.com/mbbill/undotree)
 
@@ -109,7 +109,7 @@ When you press a key that waits for a register, Peekaboo will automatically open
 
 ### [janko-m/vim-test](https://github.com/janko/vim-test/)
 
-I make a lot of tests in my day. With vim-test, I can go to a specified spec's context and run it with the `:TestNearest` command. Vim-test will automatically detect my test IDE and run only that context on that IDE. It's beaultiful.
+I make a lot of tests in my day. With vim-test, I can go to a specified spec's context and run it with the `:TestNearest` command. Vim-test will automatically detect my test IDE and run only that context on that IDE. It's beautiful.
 
 I've some commands mapped in my Vim:
 
@@ -157,7 +157,7 @@ Some extensions that I use:
 
 * coc-tsserver
 
-Intellisense for Javascript and Typescript.
+IntelliSense for JavaScript and Typescript.
 
 * coc-eslint
 
@@ -179,7 +179,7 @@ With some mapped commands, I can diff a chunk, I can undo a chunk, I can see the
 * coc-tabnine
 
 For tabnine.
-[TabNine](https://tabnine.com/) is a kind of intellisense with AI. It doesn't complete only methods or vars, It completes all the expression. It's very hard to live without it once you get the hang of it.
+[TabNine](https://tabnine.com/) is a kind of IntelliSense with AI. It doesn't complete only methods or vars, It completes all the expression. It's very hard to live without it once you get the hang of it.
 
 ### BONUS: [Github colorscheme](https://github.com/cormacrelf/vim-colors-github)
 
