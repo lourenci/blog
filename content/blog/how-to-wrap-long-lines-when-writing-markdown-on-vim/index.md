@@ -13,3 +13,22 @@ au BufRead,BufNewFile *.md setlocal wrap
 ```
 
 What this magic command do is: when either opening or creating a markdown file, set the `wrap` command only for this buffer.
+
+UPDATE: [Apparently, there are better ways to aim that](https://www.reddit.com/r/vim/comments/cfzk9i/how_to_wrap_long_lines_when_writing_markdown_on/eudkxyg/):
+
+```vim
+augroup Markdown
+  autocmd!
+  autocmd FileType markdown set wrap
+augroup END
+```
+
+From the `:help autocmd`:
+>`:autocmd` adds to the list of autocommands regardless of whether they are already present.  When your .vimrc file is sourced twice, the autocommands will appear twice. To avoid this, define your autocommands in a group.
+
+Or, you can just create a filetype plugin with:
+
+```vim
+" after/ftplugin/markdown.vim
+set wrap
+```
