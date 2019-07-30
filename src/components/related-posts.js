@@ -1,8 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import flow from "lodash/flow"
-import partialRight from "lodash/partialRight"
-import isEmpty from "lodash/isEmpty"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import flow from 'lodash/flow'
+import partialRight from 'lodash/partialRight'
+import isEmpty from 'lodash/isEmpty'
 
 function sanitizePosts (posts) {
   return posts.allMarkdownRemark.nodes.map(post => ({
@@ -29,7 +30,6 @@ function removeZeroPointPosts (posts) {
 }
 
 function sortPostsByPoints (posts) {
-  console.log(posts)
   return [...posts].sort(({ points: first }, { points: second }) => second - first )
 }
 
@@ -70,6 +70,11 @@ function RelatedPosts ({ title, tags }) {
       ))}
     </React.Fragment>
   )
+}
+
+RelatedPosts.propTypes = {
+  title: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default RelatedPosts

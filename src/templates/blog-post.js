@@ -1,11 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { DiscussionEmbed } from "disqus-react"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { DiscussionEmbed } from 'disqus-react'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
-import RelatedPosts from "../components/related-posts"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { rhythm, scale } from '../utils/typography'
+import RelatedPosts from '../components/related-posts'
 
 class BlogPostTemplate extends React.Component {
   constructor (props) {
@@ -42,7 +42,7 @@ class BlogPostTemplate extends React.Component {
         <p
           style={{
             ...scale(-1 / 5),
-            display: `block`,
+            display: 'block',
             marginBottom: rhythm(1),
           }}
         >
@@ -71,10 +71,10 @@ class BlogPostTemplate extends React.Component {
 
         <ul
           style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
             padding: 0,
           }}
         >
