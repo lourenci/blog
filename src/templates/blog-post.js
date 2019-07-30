@@ -5,6 +5,7 @@ import { DiscussionEmbed } from "disqus-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import RelatedPosts from "../components/related-posts"
 
 class BlogPostTemplate extends React.Component {
   constructor (props) {
@@ -50,10 +51,18 @@ class BlogPostTemplate extends React.Component {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
-            marginBottom: rhythm(1),
+            marginTop: rhythm(1),
           }}
         />
+        <RelatedPosts title={post.frontmatter.title} tags={post.frontmatter.tags} />
+        <hr
+          style={{
+            marginTop: rhythm(1),
+          }}
+        />
+
         <DiscussionEmbed {...this.disqusConfig} />
+
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -106,6 +115,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
       }
     }
   }
