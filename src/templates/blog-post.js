@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import mapKeys from 'lodash/mapKeys'
+import isEmpty from 'lodash/isEmpty'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -66,7 +68,10 @@ class BlogPostTemplate extends React.Component {
           <TwitterShareButton {...shareButtonForPost('twitter')} hashtags={post.frontmatter.tags}>
             <TwitterIcon size={44} round />
           </TwitterShareButton>
-          <FacebookShareButton {...shareButtonForPost('facebook')}>
+          <FacebookShareButton
+            {...mapKeys(shareButtonForPost('facebook'), (_, key) => key === 'title' ? 'quote' : key)}
+            {...(!isEmpty(post.frontmatter.tags) && { hashtag: post.frontmatter.tags[0] })}
+          >
             <FacebookIcon size={44} round />
           </FacebookShareButton>
         </div>
