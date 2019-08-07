@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { DiscussionEmbed } from 'disqus-react'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -25,18 +24,6 @@ function shareButtonProps (href, title, utmSource) {
 }
 
 class BlogPostTemplate extends React.Component {
-  constructor (props) {
-    super(props)
-
-    const { title } = props.data.site.siteMetadata
-    const { id } = props.data.markdownRemark
-
-    this.disqusConfig = {
-      shortname: process.env.GATSBY_DISQUS_NAME,
-      config: { identifier: id, title },
-    }
-  }
-
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -74,7 +61,7 @@ class BlogPostTemplate extends React.Component {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
-            marginTop: rhythm(1),
+            marginTop: rhythm(2),
           }}
         />
         <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
@@ -89,17 +76,10 @@ class BlogPostTemplate extends React.Component {
           </FacebookShareButton>
         </div>
         <RelatedPosts title={post.frontmatter.title} tags={post.frontmatter.tags} />
-        <hr
-          style={{
-            marginTop: rhythm(1),
-          }}
-        />
-
-        <DiscussionEmbed {...this.disqusConfig} />
 
         <hr
           style={{
-            marginBottom: rhythm(1),
+            marginTop: rhythm(2),
           }}
         />
 
