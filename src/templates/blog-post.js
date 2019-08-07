@@ -7,13 +7,6 @@ import { rhythm, scale } from '../utils/typography'
 import RelatedPosts from '../components/related-posts'
 
 class BlogPostTemplate extends React.Component {
-  constructor (props) {
-    super(props)
-
-    const { title } = props.data.site.siteMetadata
-    const { id } = props.data.markdownRemark
-  }
-
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
