@@ -59,12 +59,7 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginTop: rhythm(2),
-          }}
-        />
-        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: rhythm(1) }}>
           <RedditShareButton {...shareButtonForPost('reddit')}>
             <RedditIcon size={44} round />
           </RedditShareButton>
@@ -75,6 +70,11 @@ class BlogPostTemplate extends React.Component {
             <FacebookIcon size={44} round />
           </FacebookShareButton>
         </div>
+        <hr
+          style={{
+            marginTop: rhythm(1),
+          }}
+        />
         <RelatedPosts title={post.frontmatter.title} tags={post.frontmatter.tags} />
 
         <hr
