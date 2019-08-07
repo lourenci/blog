@@ -14,7 +14,11 @@ import {
   TwitterShareButton,
   TwitterIcon,
   RedditShareButton,
-  RedditIcon
+  RedditIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon
 } from 'react-share';
 
 function shareButtonProps (href, title, utmSource) {
@@ -68,6 +72,12 @@ class BlogPostTemplate extends React.Component {
           <TwitterShareButton {...shareButtonForPost('twitter')} hashtags={post.frontmatter.tags}>
             <TwitterIcon size={44} round />
           </TwitterShareButton>
+          <WhatsappShareButton {...shareButtonForPost('whatsapp')}>
+            <WhatsappIcon size={44} round />
+          </WhatsappShareButton>
+          <LinkedinShareButton {...shareButtonForPost('linkedin')}>
+            <LinkedinIcon size={44} round />
+          </LinkedinShareButton>
           <FacebookShareButton
             {...mapKeys(shareButtonForPost('facebook'), (_, key) => key === 'title' ? 'quote' : key)}
             {...(!isEmpty(post.frontmatter.tags) && { hashtag: post.frontmatter.tags[0] })}
