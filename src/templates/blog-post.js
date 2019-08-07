@@ -6,11 +6,34 @@ import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 import RelatedPosts from '../components/related-posts'
 
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  RedditShareButton,
+  RedditIcon
+} from 'react-share';
+
+function shareButtonProps (href, title, utmSource) {
+  return {
+    url: `${href}?utm_source=${utmSource}&utm_medium=sharebuttons`,
+    title: title,
+    style: { cursor: 'pointer' }
+  }
+}
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+
+    const shareButtonForPost = shareButtonProps.bind(
+      null,
+      this.props.location.href,
+      this.props.data.markdownRemark.frontmatter.title
+    )
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -36,9 +59,20 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: rhythm(1) }}>
+          <RedditShareButton {...shareButtonForPost('reddit')}>
+            <RedditIcon size={44} round />
+          </RedditShareButton>
+          <TwitterShareButton {...shareButtonForPost('twitter')} hashtags={post.frontmatter.tags}>
+            <TwitterIcon size={44} round />
+          </TwitterShareButton>
+          <FacebookShareButton {...shareButtonForPost('facebook')}>
+            <FacebookIcon size={44} round />
+          </FacebookShareButton>
+        </div>
         <hr
           style={{
-            marginTop: rhythm(2),
+            marginTop: rhythm(1),
           }}
         />
         <RelatedPosts title={post.frontmatter.title} tags={post.frontmatter.tags} />
