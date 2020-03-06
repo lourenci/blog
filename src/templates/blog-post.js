@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import mapKeys from 'lodash/mapKeys'
 import isEmpty from 'lodash/isEmpty'
+import moment from 'moment'
+import flow from 'lodash/flow'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -29,6 +31,16 @@ function shareButtonProps (href, title, utmSource) {
   }
 }
 
+function getLastValueOfArray(array) {
+  return array[array.length - 1]
+}
+
+function formatDate(date) {
+  return moment(date).format('MMMM DD, YYYY')
+}
+
+const formatLastDate = flow(getLastValueOfArray, formatDate)
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -55,15 +67,21 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.title}
         </h1>
-        <p
+        <div
           style={{
             ...scale(-1 / 5),
             display: 'block',
             marginBottom: rhythm(1),
           }}
         >
-          {post.frontmatter.date}
-        </p>
+          <span>{post.frontmatter.date}</span>
+          {post.frontmatter.updates && (
+            <>
+              <br />
+              <span>{`Updated on ${formatLastDate(post.frontmatter.updates)}`}</span>
+            </>
+          )}
+        </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: rhythm(1) }}>
           <RedditShareButton {...shareButtonForPost('reddit')}>
@@ -144,6 +162,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        updates
         tags
       }
     }
