@@ -1,6 +1,7 @@
 ---
 title: What is the difference between a Component and a PureComponent?
 date: "2019-08-05T20:50:00.000Z"
+updates: ["2020-03-05T22:20:00.000Z"]
 tags: ["react"]
 ---
 
@@ -87,3 +88,17 @@ onClick () {
   this.props.fn(this.props.fnArg)
 }
 ```
+
+## What about the functional components?
+
+Now after one year that Hooks are around, you have been asking yourself: what is the functional component way for `PureComponent`?
+
+### `React.memo`
+
+`React.memo` is a high order component that receives a component and returns you another component. This new component will be able to do a shallow comparison on its props then the rerender will not take place if nothing has changed.
+
+```jsx
+const MyCleverComponent = React.memo(function MyComponent(props) {})
+```
+
+Note that `React.memo` doesn't prevent a rerender from a state change, whereas the `PureComponent` does, but you can also use "memo" on its children too.
