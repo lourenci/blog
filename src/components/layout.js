@@ -63,7 +63,7 @@ class Layout extends React.Component {
         <main>{children}</main>
         <footer style={{ display: 'flex', justifyContent: 'space-between' }}>
           <span>
-            <a href="mailto:leandro@lourenci.com">e-mail</a>, <a href="https://twitter.com/lourenci">twitter</a>, <a href="https://github.com/lourenci">github</a>.
+            <a href="mailto:0slogs.seating@icloud.com">e-mail</a>, <a href="https://twitter.com/lourenci">twitter</a>, <a href="https://github.com/lourenci">github</a>.
           </span>
           <span><a href="/rss.xml">rss</a>.</span>
         </footer>
