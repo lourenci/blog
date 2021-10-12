@@ -2,6 +2,7 @@
 title: How to update the Jest's jsdom to the latest version
 date: "2019-07-29T11:12:00.000Z"
 tags: ["jest", "jsdom", "react", "enzyme", "@testing-library"]
+draft: false
 ---
 
 Jest comes with jsdom to mount your components. When you mount your component with render libs like `@testing-library` or `enzyme`, this component will be mounted on jsdom.

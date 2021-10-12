@@ -3,6 +3,7 @@ title: What is the difference between a Component and a PureComponent?
 date: "2019-08-05T20:50:00.000Z"
 updates: ["2020-03-05T22:20:00.000Z"]
 tags: ["react"]
+draft: false
 ---
 
 In the class components land, you can define a component either by extending it from `React.Component` or from `React.PureComponent`.

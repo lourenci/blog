@@ -1,0 +1,12 @@
+{{define "main"}}
+<main>
+  <h1>{{ .Title }}</h1>
+  {{ if (gt .Params.date 0) }}
+    <div class="article-meta">
+      <time datetime="{{ .Date }}">{{.Date.Format "January 2006"}}</time>
+    </div>
+  {{ end }}
+
+  {{ .Content }}
+</main>
+{{end}}
