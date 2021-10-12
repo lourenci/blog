@@ -1,0 +1,9 @@
+baseURL: https://blog.lourenci.com/
+languageCode: en-us
+title: Lourenci's Blog
+theme: default
+markup:
+  highlight:
+    style: github
+permalinks:
+  posts: /:title/
