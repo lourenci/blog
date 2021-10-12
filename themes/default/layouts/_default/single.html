@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-
+{{define "main"}}
 <main>
   <h1>{{ .Title }}</h1>
   {{ if (gt .Params.date 0) }}
@@ -10,5 +9,4 @@
 
   {{ .Content }}
 </main>
-
-{{ partial "footer.html" . }}
+{{end}}
