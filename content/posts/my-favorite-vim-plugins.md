@@ -2,6 +2,7 @@
 title: My Favorite Vim Plugins
 date: "2019-07-16T23:22:03.284Z"
 tags: ["vim", "vim-plugins"]
+draft: false
 ---
 
 It had been a long time using a heavy IDE from the Jetbrains family (e.g. PhpStorm, Rubymine) and I wanted to switch to something lightful and as keyboard oriented as Jetbrains' IDEs. I tried VSCode, but the lack of essential shortcuts (e.g. navigate through the tree files) was the last straw for me. So, I decided to adventure in the Vim world.
