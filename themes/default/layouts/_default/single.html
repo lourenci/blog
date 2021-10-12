@@ -4,6 +4,11 @@
   {{ if (gt .Params.date 0) }}
     <div class="article-meta">
       <time datetime="{{ .Date }}">{{.Date.Format "January 2006"}}</time>
+      <div>
+        {{range $tag := .Params.Tags}}
+          #{{$tag}}
+        {{end}}
+      </div>
     </div>
   {{ end }}
 
