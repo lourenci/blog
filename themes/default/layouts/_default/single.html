@@ -1,17 +1,21 @@
 {{define "main"}}
-<main>
-  <h1>{{ .Title }}</h1>
-  {{ if (gt .Params.date 0) }}
-    <div class="article-meta">
-      <time datetime="{{ .Date }}">{{.Date.Format "January 2006"}}</time>
-      <div>
-        {{range $tag := .Params.Tags}}
-          #{{$tag}}
-        {{end}}
-      </div>
-    </div>
-  {{ end }}
+  <article role="article">
+    <header>
+      <h1>{{ .Title }}</h1>
+      {{ if (gt .Params.date 0) }}
+        <div class="article-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{.Date.Format "January 2006"}}</time>
+          <div>
+            {{range $tag := .Params.Tags}}
+              #{{$tag}}
+            {{end}}
+          </div>
+        </div>
+      {{ end }}
+    </header>
 
-  {{ .Content }}
-</main>
+    <section>
+      {{ .Content }}
+    </section>
+  </article>
 {{end}}

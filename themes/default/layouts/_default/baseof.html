@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
   </head>
   <body>
-    {{ block "main" . }}
-    {{ end }}
+    <main>
+      {{ block "main" . }}
+      {{ end }}
+    </main>
     {{ template "_internal/google_analytics.html" . }}
   </body>
 </html>

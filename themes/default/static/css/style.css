@@ -1,10 +1,16 @@
 body {
-  max-width: 70%;
   margin: auto;
   padding: 1em;
   line-height: 1.5em;
-  font-size: 1.4em;
-  font-family: "Times New Roman", sans-serif;
+  font-family: sans-serif;
+}
+
+@media screen and (min-width:601px) {
+  body {
+    max-width: 80%;
+    font-size: 1.4em;
+    line-height: 1.6em;
+  }
 }
 
 .article-meta {
@@ -30,7 +36,7 @@ pre {
 }
 code {
   background: #f9f9f9;
-  font-family: Menlo, monospace;
+  font-family: monospace;
 }
 pre code {
   background: none;
