@@ -18,6 +18,12 @@ body {
   line-height: 1rem;
 }
 
+.home-footer {
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: right;
+}
+
 h1 {
   margin-bottom: 10px;
 }
