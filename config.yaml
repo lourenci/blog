@@ -8,3 +8,7 @@ markup:
 permalinks:
   posts: /:title/
 googleAnalytics: G-E800RQ6QDL
+
+outputFormats:
+  RSS:
+    baseName: feed
