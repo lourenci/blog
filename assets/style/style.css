@@ -5,11 +5,17 @@ body {
   font-family: sans-serif;
 }
 
-@media screen and (min-width:601px) {
+@media only screen and (min-width:601px) {
   body {
     max-width: 80%;
     font-size: 1.4em;
     line-height: 1.6em;
+  }
+}
+
+@media only screen and (min-width:1401px) {
+  body {
+    max-width: 50%;
   }
 }
 
