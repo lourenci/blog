@@ -20,13 +20,13 @@ body {
 }
 
 .article-meta {
-  font-size: 1rem;
-  line-height: 1rem;
+  font-size: 0.70em;
+  line-height: 1em;
 }
 
 .home-footer {
-  font-size: 1rem;
-  line-height: 1rem;
+  font-size: 1em;
+  line-height: 1em;
   text-align: right;
 }
 
@@ -61,7 +61,7 @@ figure > img {
   max-width: 100%;
 }
 figure > figcaption {
-  font-size: 1rem;
-  line-height: 1rem;
+  font-size: 0.75em;
+  line-height: 1em;
   font-style: italic;
 }
