@@ -1,0 +1,6 @@
+{{ range first 1 (shuffle (where (where .Site.Pages "Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink )) }}
+	<section class="may-also-like">
+		<h1>You may also like...</h1>
+		<div><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+	</section>
+{{ end }}

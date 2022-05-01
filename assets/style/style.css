@@ -65,3 +65,10 @@ figure > figcaption {
   line-height: 1em;
   font-style: italic;
 }
+
+.may-also-like {
+  font-size: 0.7em;
+}
+.may-also-like > h1 {
+  margin-bottom: 0;
+}
