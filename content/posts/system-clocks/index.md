@@ -3,6 +3,7 @@ title: Your computer has two clocks
 date: 2022-04-29T20:12:00.000Z
 tags:
 - Technology
+- My notes
 draft: false
 ---
 
