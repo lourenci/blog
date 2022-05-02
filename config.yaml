@@ -1,6 +1,6 @@
 baseURL: https://blog.lourenci.com/
 languageCode: en-us
-title: Lourenci's Blog
+title: Lourenci's Notes
 theme: default
 markup:
   highlight:
