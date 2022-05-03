@@ -6,7 +6,6 @@ tags:
 - Technology
 draft: false
 ---
-
 You cannot realise that, but your computer has a battery inside it only to get your computer clock running. Back in the 90s, when the rechargeable (lithium-ion) battery was not cheap, we used to disassemble our computers to replace their clock battery when the computer could not keep the clock "on time" anymore. Yeah, your computer clock is a "thing".
 
 Like your old wall-clock, it’s impossible to get the computer ones ticking at the precise time. Your OS tries its best to put it in sync, bringing a more accurate time from the internet (NTP servers), but it is its best after all.
@@ -24,7 +23,7 @@ When your computer tries to reach an NTP server to its clock, other things have 
 
 NTP protocol is designed with specific algorithms to solve those (and more) issues.
 
-![](Pasted%20image%2020220428200328.png "NTP servers trying to get the most accurate time")
+![NTP servers](Pasted%20image%2020220428200328.png "NTP servers trying to get the most accurate time")
 
 With that in mind, your OS provides you with two different clocks: the real-time clock and the monotonic clock.
 
