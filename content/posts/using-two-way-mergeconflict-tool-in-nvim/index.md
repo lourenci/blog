@@ -3,6 +3,7 @@ title: "Using two-way merge/conflict tool in (n)vim"
 date: 2022-05-05T20:15:00+10:00
 tags:
 - TIL
+- vim
 draft: false
 ---
 I don't like 3-ways merge. For a long time, I've been using this [plugin](https://github.com/whiteinge/diffconflicts) to solve my merge conflicts in a 2-way way.
