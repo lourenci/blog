@@ -19,6 +19,13 @@ body {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e20;
+    color: #bdc1c6;
+  }
+}
+
 .article-meta {
   font-size: 0.70em;
   line-height: 1em;
