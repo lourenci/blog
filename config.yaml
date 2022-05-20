@@ -7,7 +7,6 @@ markup:
     style: github
 permalinks:
   posts: /:title/
-googleAnalytics: G-E800RQ6QDL
 
 outputFormats:
   RSS:
