@@ -31,6 +31,10 @@ body {
   line-height: 1em;
 }
 
+article > section {
+  text-align: justify;
+}
+
 .home-footer {
   font-size: 1em;
   line-height: 1em;
