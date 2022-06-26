@@ -1,6 +1,7 @@
 ---
 title: "Using two-way merge/conflict tool in (n)vim"
 date: 2022-05-05T20:15:00+10:00
+updates: [2022-06-26T10:13:24+1000]
 tags:
 - TIL
 - vim
@@ -23,4 +24,5 @@ After checking the support, enable it with:
 
 ```bash
 git mergetool --tool=nvimdiff1
+git config --global mergetool.hideResolved true
 ```
