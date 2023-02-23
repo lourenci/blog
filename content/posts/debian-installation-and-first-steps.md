@@ -1,9 +1,6 @@
 ---
 title: Debian installation and first steps
 date: 2023-02-23T18:55:00+11:00
-tags:
-  - TIL
-  - brew
 draft: false
 ---
 
