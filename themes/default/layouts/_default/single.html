@@ -1,23 +1,29 @@
 {{define "main"}}
-  <article role="article">
-    <header>
-      <h1>{{ .Title }}</h1>
-      {{ if (gt .Params.date 0) }}
-        <div class="article-meta">
-          <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{.Date.Format "January 2006"}}</time>
-          <div>
-            {{range $tag := .Params.Tags}}
-              #<a href="/tags/{{$tag | lower}}">{{$tag}}</a>
-            {{end}}
-          </div>
-        </div>
-      {{ end }}
-    </header>
+<article role="article">
+	<header>
+		<h1>{{ .Title }}</h1>
+		{{ if (gt .Params.date 0) }}
+		<div class="article-meta">
+			<time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{.Date.Format "January 2006"}}</time>
+			{{ if (and (gt .Params.Updates 0) (gt (len .Params.Updates) 0)) }}
+				{{ $mostRecentUpdate := index .Params.Updates (sub (len .Params.Updates) 1) | time }}
+				<time datetime="{{ $mostRecentUpdate.Format "2006-01-02" }}" itemprop="dateUpdated">
+					| Updated in {{$mostRecentUpdate.Format "January 2006"}}
+				</time>
+			{{ end }}
+			<div>
+				{{range $tag := .Params.Tags}}
+				#<a href="/tags/{{$tag | lower}}">{{$tag}}</a>
+				{{end}}
+			</div>
+		</div>
+		{{ end }}
+	</header>
 
-    <section>
-      {{ .Content }}
-    </section>
-  </article>
-  <hr />
-  {{ partial "may-also-like.html" . }}
+	<section>
+		{{ .Content }}
+	</section>
+</article>
+<hr />
+{{ partial "may-also-like.html" . }}
 {{end}}
