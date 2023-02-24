@@ -1,6 +1,7 @@
 ---
 title: Debian installation and first steps
-date: 2023-02-23T18:55:00+11:00
+date: 2017-05-10T00:00:00+11:00
+updates: [2023-02-24T10:14:48+1100]
 draft: false
 ---
 
@@ -8,17 +9,17 @@ draft: false
 
 Debian doesn't come with non-free firmwares, so it can be necessary to install them. In Debian's download page (page with the .iso files) has a link for the firmwares.
 
-You can use the same USB with the bootable Debian for those firmwares: after restore the Debian's ISO into an USB, you can create a new partition with `$ fdisk /dev/sdb` and change it to `FAT16` with `mkdosfs /dev/sdbX`.
+You can use the same USB with the bootable Debian for those firmwares: after restoring the Debian's ISO into a USB, you can create a new partition with `$ fdisk /dev/sdb` and change it to `FAT16` with `mkdosfs /dev/sdbX`.
 Those firmwares have to be unpackaged to `/firmware` path in the new USB partition.
 
-Another much more easy way to do it, it's to download the ISO image built already with the non-free [firmwares](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/).
+Another much more straightforward way to do it, it's to download the ISO image built already with the non-free [firmwares](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/).
 
 ### Before installing
 
-Don't forget to make sure the `.iso` you downloaded is not tampered by any third party. As Debian includes the signatures in the same folder you got the `iso`, you can easily check this using `gpg`:
+Don't forget to ensure the `.iso` you downloaded is not tampered with by any third party. As Debian includes the signatures in the same folder you got the `iso`, you can easily check this using `gpg`:
 
 ```sh
-# Check integrity of the file containing the SHASUM (you may need to import the keys from Debian's keyserver)
+# Check the integrity of the file containing the SHASUM (you may need to import the keys from Debian's keyserver)
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 
 # Get the shasum of the downloaded iso
@@ -30,9 +31,9 @@ $ cat SHA512SUMS
 
 ## First steps
 
-1. Comment `deb cd-rom:` repos in `/etc/apt/sources.list` file.
+1. Comment `deb cd-rom:` repos in `/etc/apt/sources.list` file (you may need superuser permissions `$ su`).
 
-1. Install and configure sudo (not necessary if you leave the root password empty on installation).
+1. Install and configure sudo (not necessary if you left the root password empty on installation).
 
    1. `$ su`
    1. `$ apt-get update`
@@ -40,12 +41,22 @@ $ cat SHA512SUMS
    1. `$ usermod -a -G sudo your_user`
    1. Restart
 
+1. Depending on how old your `.iso` are, you may want to upgrade the Debian:
+
+```sh
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+```
+
+## Some extras
+
 1. Install the Microsoft fonts.
 
-   - `echo 'deb http://ftp.us.debian.org/debian jessie main contrib' >> /etc/apt/sources.list` (not necessary in some mirrors: US for example)
+   - `echo 'deb http://ftp.us.debian.org/debian jessie main contrib' >> /etc/apt/sources.list` (not necessary in some mirrors: US, for example)
    - `sudo apt-get install ttf-mscorefonts-installer`
 
-1. Rearrange window buttons (close, minimize...) to left.
+1. Rearrange window buttons (close, minimize...) to the left.
 
    - `gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"`
 
@@ -57,13 +68,13 @@ $ cat SHA512SUMS
 
    - `gsettings set org.gnome.desktop.wm.keybindings panel-main-menu "[]"`
 
-1. Install some awesome extensions from [Gnome Extensions](https://extensions.gnome.org/):
+1. Install some excellent extensions from [Gnome Extensions](https://extensions.gnome.org/):
 
-   - **Frippery move clock**: it moves the centered clock to the right of the gnome bar.
-   - **Lock keys**: useful for keyboards the don't have status LED for Caps lock and Num lock keys.
-   - **No topleft hot corner**: it prevents the default gnome's behaviour to show up the activity view when the mouse points in window's top left corner.
-   - **Panel osd**: to customize notification's position in the screen.
-   - **Random Walls**: it changes automatically and randomically the wallpaper and lock screen image.
+   - **Frippery move clock**: it moves the centred clock to the right of the gnome bar.
+   - **Lock keys**: useful for keyboards that don't have a status LED for Caps lock and Num lock keys.
+   - **No topleft hot corner**: it prevents the default gnome's behaviour from showing up in the activity view when the mouse points in the window's top left corner.
+   - **Panel osd**: to customize the notification's position on the screen.
+   - **Random Walls**: it changes the wallpaper and lock screen image automatically and randomly.
    - **Topicons plus**: changes the tray icons to the top.
    - **Workspace indicator**: shows the active workspace.
    - **Docker integration**: hides _veth_ networks from gnome interface.
@@ -71,9 +82,8 @@ $ cat SHA512SUMS
    - **Dash to Dock**: A mac dock style for linux.
    - **Workspace Isolated Dash**: Isolate each workspace as if it was the only workspace.
 
-1. Install a beaultiful theme for Gnome:
-   - `$ sudo apt install numix-gtk-theme`
-   - `$ sudo apt install numix-icon-theme`
+1. Install a beautiful theme for Gnome:
+   - `$ sudo apt install numix-gtk-theme numix-icon-theme`
 
 ### Updating git
 
@@ -98,3 +108,41 @@ You must use `English (US, international with dead keys)`.
 #### Ć instead of Ç
 
 You need to put `GTK_IM_MODULE=cedilla` in `/etc/environment` file. After that, logout and login again.
+
+### Creating a partition with more than 2TB
+
+Debian (`fdisk`) doesn't support creating a partition with more than 2TB due to using the MBR partition table. You'll need to use GPT instead:
+
+```sh
+$ sudo apt-get install parted
+
+# Check the disk you want to format
+$ sudo fdisk -l
+
+# Replace /sdx for the disk you want to format
+$ sudo parted /dev/sdx
+$ mklabel gpt
+$ quit
+$ sudo parted -a optimal /dev/sdx mkpart primary '0%' '100%'
+```
+
+Now you can format the partition with the file system you want:
+
+```sh
+$ sudo mkfs.ext4 /dev/sdx1
+```
+
+You should be able to replace the `mkfs.ext4` command with `mkfs.exfat` if you want that file system (see [section below](#which-partition-type-to-choose))
+
+#### Which partition type to choose?
+
+As a rule of thumb:
+
+- Use `ext4` if you plan to use the disk only on linux.
+- Use `exFAT` if you plan to share between multiples OS. Linux, Windows and MacOS support it.
+
+Debian out-the-box does not support `exFAT`. You'll need to install fuse:
+
+```sh
+$ sudo apt-get install exfat-fuse exfat-utils
+```
