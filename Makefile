@@ -14,4 +14,4 @@ start: ## Start dev server
 
 .PHONY: new-post
 new-post: ## Create a new post template (title="Post name")
-	@coercion "$(title)" | sed "s/^/posts\//" | sed "s/[.?']//g" | sed "s/$$/\.md/" | xargs hugo new
+	@./create-post.sh $(title)
