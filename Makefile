@@ -6,7 +6,11 @@ help:
 
 .PHONY: start
 start: ## Start dev server
-	hugo serve
+	@docker run --rm -it \
+		-v $(PWD):/src \
+		-p 1313:1313 \
+		klakegg/hugo:alpine \
+		serve
 
 .PHONY: new-post
 new-post: ## Create a new post template (title="Post name")
