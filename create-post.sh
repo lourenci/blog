@@ -2,7 +2,7 @@
 
 gnu_sed="docker run --rm -i hairyhenderson/sed"
 
-TITLE=$1
+TITLE=$@
 FILENAME="$(echo "$TITLE" | \
 	$gnu_sed 's/ /-/g' | \
 	$gnu_sed -E 's/[^0-9A-Za-z_-]+//g' | \
