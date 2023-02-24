@@ -5,22 +5,22 @@ body {
   font-family: serif;
 }
 
-@media only screen and (min-width:601px) {
+@media only screen and (min-width: 601px) {
   body {
     max-width: 80%;
     line-height: 1.25em;
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 }
 
-@media only screen and (min-width:1401px) {
+@media only screen and (min-width: 1401px) {
   body {
     max-width: 50%;
   }
 }
 
 .article-meta {
-  font-size: 0.90em;
+  font-size: 0.9em;
   line-height: 1em;
 }
 
