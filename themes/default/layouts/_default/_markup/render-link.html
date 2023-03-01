@@ -1,0 +1,7 @@
+{{ $isExternalLink := hasPrefix .Destination "http" }}
+{{ if $isExternalLink }}
+	<a href="{{ .Destination | safeURL }}" target="_blank" rel="noopener noreferrer">{{ .Text | safeHTML }}</a>
+{{ else }}
+	{{ $internalLink :=  replace .Destination ".md" "" }}
+	<a href="{{ $internalLink | safeURL }}">{{ .Text | safeHTML }}</a>
+{{ end }}

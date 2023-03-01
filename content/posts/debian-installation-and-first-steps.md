@@ -113,4 +113,4 @@ You need to put `GTK_IM_MODULE=cedilla` in `/etc/environment` file. After that, 
 
 ### Creating a partition with more than 2TB
 
-Please, head over to [this post]({{< relref "creating-a-partition-with-more-than-2tb-on-debian.md" >}}).
+Please, head over to [this post](/creating-a-partition-with-more-than-2tb-on-debian.md).
